@@ -17,7 +17,6 @@ namespace PS.Client.Api
                 string.Concat(Directory.GetCurrentDirectory(), "/nlog.config"));
 
             Configuration = configuration;
-
         }
 
         public IConfiguration Configuration { get; }
