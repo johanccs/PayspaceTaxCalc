@@ -1,10 +1,12 @@
 ﻿using Microsoft.AspNetCore.Builder;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using PS.Application.Services;
 using PS.Contracts.Logging;
+using PS.Contracts.Services;
+using PS.Data.Context;
 using PS.Infrastructure.Logging;
-using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace PS.Application.DI
 {
@@ -28,10 +30,20 @@ namespace PS.Application.DI
 
             });
         }
+        public static void ConfigureDbContext(this IServiceCollection services, IConfiguration config)
+        {
+            var connectionString = config["ConnectionStrings:DefaultConnection"];
+            services.AddDbContext<TaxCalcDbContext>(options => options.UseSqlite(connectionString));
+        }
 
         public static void ConfigureLogging(this IServiceCollection services)
         {
             services.AddSingleton<ILogManager, Logger>();
+        }
+
+        public static void ConfigureIoCServices(this IServiceCollection services)
+        {
+            services.AddScoped<ICalculateTaxService, CalculateTaxService>();
         }
     }
 }
