@@ -5,15 +5,14 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="8.1.0" />
     <PackageReference Include="NLog" Version="4.7.5" />
   </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\PS.Application.DI\PS.Application.DI.csproj" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="Controllers\" />
+    <ProjectReference Include="..\PS.Application.Services\PS.Application.Services.csproj" />
+    <ProjectReference Include="..\PS.Contracts\PS.Contracts.csproj" />
   </ItemGroup>
 
 

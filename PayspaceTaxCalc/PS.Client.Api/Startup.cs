@@ -1,3 +1,4 @@
+using AutoMapper;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
@@ -26,7 +27,9 @@ namespace PS.Client.Api
             services.ConfigureCors();
             services.ConfigureIIS();
             services.ConfigureLogging();
-
+            services.AddAutoMapper(typeof(Startup));
+            services.ConfigureDbContext(Configuration);
+            services.ConfigureIoCServices();
             services.AddControllers();
         }
 
