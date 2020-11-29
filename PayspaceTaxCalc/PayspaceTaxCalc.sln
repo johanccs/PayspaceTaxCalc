@@ -3,21 +3,23 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.30413.136
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PS.Client.Web", "PS.Client.Web\PS.Client.Web.csproj", "{69BE8122-7282-475D-8F42-017D8D72B4C0}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PS.Client.Web", "PS.Client.Web\PS.Client.Web.csproj", "{69BE8122-7282-475D-8F42-017D8D72B4C0}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PS.Client.Api", "PS.Client.Api\PS.Client.Api.csproj", "{D5560EF1-B454-4C69-97E7-2F259D122FCA}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PS.Client.Api", "PS.Client.Api\PS.Client.Api.csproj", "{D5560EF1-B454-4C69-97E7-2F259D122FCA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PS.Application.DI", "PS.Application.DI\PS.Application.DI.csproj", "{0C456CF0-0A4A-4886-975B-69F2A84457BD}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PS.Application.DI", "PS.Application.DI\PS.Application.DI.csproj", "{0C456CF0-0A4A-4886-975B-69F2A84457BD}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PS.Application.Services", "PS.Application.Services\PS.Application.Services.csproj", "{D350F16F-96F0-4E59-83E2-3E0B248E43E2}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PS.Application.Services", "PS.Application.Services\PS.Application.Services.csproj", "{D350F16F-96F0-4E59-83E2-3E0B248E43E2}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PS.Data", "PS.Data\PS.Data.csproj", "{3AAF35E8-BD3A-4716-B54C-0D68E7C38603}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PS.Data", "PS.Data\PS.Data.csproj", "{3AAF35E8-BD3A-4716-B54C-0D68E7C38603}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PS.Domain", "PS.Domain\PS.Domain.csproj", "{24E1259A-C763-4D0C-974E-3B242A72C422}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PS.Domain", "PS.Domain\PS.Domain.csproj", "{24E1259A-C763-4D0C-974E-3B242A72C422}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PS.Infrastructure", "PS.Infrastructure\PS.Infrastructure.csproj", "{0F103C4F-3CB1-4776-8D0E-301C4D974D17}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PS.Infrastructure", "PS.Infrastructure\PS.Infrastructure.csproj", "{0F103C4F-3CB1-4776-8D0E-301C4D974D17}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PS.Contracts", "PS.Contracts\PS.Contracts.csproj", "{43B0C8AE-CA2E-45BD-A6B2-7A8DD79CF7A2}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PS.Contracts", "PS.Contracts\PS.Contracts.csproj", "{43B0C8AE-CA2E-45BD-A6B2-7A8DD79CF7A2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PS.Test", "PS.Test\PS.Test.csproj", "{E02B1540-1D18-4090-A968-9F710E188827}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -57,6 +59,10 @@ Global
 		{43B0C8AE-CA2E-45BD-A6B2-7A8DD79CF7A2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{43B0C8AE-CA2E-45BD-A6B2-7A8DD79CF7A2}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{43B0C8AE-CA2E-45BD-A6B2-7A8DD79CF7A2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E02B1540-1D18-4090-A968-9F710E188827}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E02B1540-1D18-4090-A968-9F710E188827}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E02B1540-1D18-4090-A968-9F710E188827}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E02B1540-1D18-4090-A968-9F710E188827}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
