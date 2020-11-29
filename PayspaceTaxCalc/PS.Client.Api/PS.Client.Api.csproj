@@ -12,5 +12,9 @@
     <ProjectReference Include="..\PS.Application.DI\PS.Application.DI.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Controllers\" />
+  </ItemGroup>
+
 
 </Project>
