@@ -1,8 +1,12 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using AutoMapper;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using PS.Client.Web.LocalService;
 using PS.Client.Web.Models;
+using PS.Contracts.Logging;
 using PS.Contracts.Services;
+using PS.Data.DTO;
+using System;
 
 namespace PS.Client.Web.Controllers
 {
@@ -11,14 +15,19 @@ namespace PS.Client.Web.Controllers
         #region Readonly Fields
 
         private readonly IConfiguration _config;
+        private readonly ILogManager _logger;
+        private readonly IMapper _mapper;
       
         #endregion
 
         #region Constructor
 
-        public TaxController(IConfiguration config)
+        public TaxController(
+            IConfiguration config, ILogManager logger, IMapper mapper)
         {
             _config = config;
+            _logger = logger;
+            _mapper = mapper;
         }
 
         #endregion
@@ -44,18 +53,27 @@ namespace PS.Client.Web.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public IActionResult Create(TaxCalculationModel tc)
+        public IActionResult Create(TaxCalculationModel taxCalculation)
         {
-            if (!ModelState.IsValid)
+            try
             {
-                return StatusCode(500, "Internal Server Error");
+                if (!ModelState.IsValid)
+                {
+                    return StatusCode(500, "Internal Server Error");
+                }
+
+                var result = ApiHandler.Handle(
+                    _mapper.Map<TaxCalcDto>(taxCalculation), _config);
+
+                ViewData["Result"] = result;
+
+                return RedirectToAction("Success");
             }
-
-            var result = ApiHandler.Handle(tc, _config);
-
-            ViewData["Result"] = result;
-
-            return RedirectToAction("Success");
+            catch (Exception ex)
+            {
+                _logger.LogError($"Error occurred. See exception for more information - {ex.Message}");
+                throw;
+            }
         }
     }
 }

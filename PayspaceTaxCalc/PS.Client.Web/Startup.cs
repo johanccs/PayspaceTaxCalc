@@ -1,3 +1,4 @@
+using AutoMapper;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
@@ -20,10 +21,12 @@ namespace PS.Client.Web
         public void ConfigureServices(IServiceCollection services)
         {
             services.ConfigureIoCServices();
+            services.ConfigureLogging();
+            services.AddAutoMapper(typeof(Startup));
+
             services.AddControllersWithViews();
         }
 
-        // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
             if (env.IsDevelopment())
@@ -32,8 +35,7 @@ namespace PS.Client.Web
             }
             else
             {
-                app.UseExceptionHandler("/Home/Error");
-                // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
+                app.UseExceptionHandler("/Home/Error");  
                 app.UseHsts();
             }
             app.UseHttpsRedirection();

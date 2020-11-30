@@ -51,6 +51,20 @@ namespace PS.Client.Api.Controllers
             }
         }
 
+        [HttpPost]
+        public IActionResult GetTaxPayable(TaxCalcDto taxCalc)
+        {
+            try
+            {
+                return Ok();
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
+
         #endregion
 
     }
