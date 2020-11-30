@@ -1,0 +1,37 @@
+﻿@model PS.Client.Web.Models.TaxCalculationModel 
+
+@{
+    //ViewData["Title"] = "Create";
+    //Layout = "~/Views/Shared/_Layout.cshtml";
+}
+  
+<div class="container-fluid">
+    <div class="card" style="width: 40rem; margin: 0 auto">
+        <div class="card-text" style="margin:0 auto">
+            <h2 style="color: #3F729B">Welcome to Payspace Tax calculator</h2>
+        </div>
+        <div class="card-body">
+            <form asp-controller="Tax" asp-action="Create" method="post">
+                <div class="row">
+                    <div class="col-sm-9">
+                        <div class="form-group">
+                            <label>Postal Code</label>
+                            <input asp-for="PostalCode" class="form-control form-control-sm" />
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-9">
+                        <div class="form-group">
+                            <label>Annual Income</label>
+                            <input asp-for="AnnualIncome" class="form-control form-control-sm" />
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <input type="submit" value="Create" class="btn btn-primary btn-sm" />
+                </div>
+            </form>  
+        </div>
+    </div>
+</div>
