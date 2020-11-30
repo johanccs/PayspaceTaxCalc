@@ -22,7 +22,7 @@ namespace PS.Application.Services
             if (taxRate == null)
                 throw new ArgumentException("Invalid TaxRate parameter");
 
-            return 0;
+            return taxRate.AnnualIncome * Convert.ToDecimal(0.15);
         }
 
         #endregion

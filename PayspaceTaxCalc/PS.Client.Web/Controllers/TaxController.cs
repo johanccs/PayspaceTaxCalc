@@ -17,7 +17,12 @@ namespace PS.Client.Web.Controllers
         private readonly IConfiguration _config;
         private readonly ILogManager _logger;
         private readonly IMapper _mapper;
-      
+
+        #endregion
+
+        #region Fields
+        public SimpleClass SimpleClass { get; set; }
+
         #endregion
 
         #region Constructor
@@ -46,9 +51,11 @@ namespace PS.Client.Web.Controllers
             return View(taxCalc);
         }
 
-        public IActionResult Success()
+        public IActionResult Success(string message)
         {
-            return View();
+            var simpleClass = new SimpleClass { Result = message };
+
+            return View(simpleClass);
         }
 
         [HttpPost]
@@ -62,12 +69,9 @@ namespace PS.Client.Web.Controllers
                     return StatusCode(500, "Internal Server Error");
                 }
 
-                var result = ApiHandler.Handle(
-                    _mapper.Map<TaxCalcDto>(taxCalculation), _config);
-
-                ViewData["Result"] = result;
-
-                return RedirectToAction("Success");
+                var result = ApiHandler.Handle(true,_mapper.Map<TaxCalcDto>(taxCalculation), _config);
+             
+                return RedirectToAction("Success", new { message = result });
             }
             catch (Exception ex)
             {

@@ -1,4 +1,4 @@
-﻿
+﻿@model PS.Client.Web.Models.SimpleClass
 @{
     ViewData["Title"] = "Success";
     Layout = "~/Views/Shared/_Layout.cshtml";
@@ -8,7 +8,7 @@
     <div class="card" style="width: 40rem; margin: 0 auto">
         <div class="card-text" style="margin:0 auto">
             <h2>Record successfully added</h2>
-            <h3>@ViewData["Result"]</h3>
+            <h3>@Model.Result</h3>
         </div>
     </div>
 </div>

@@ -33,7 +33,7 @@ namespace PS.Application.DI
         public static void ConfigureDbContext(this IServiceCollection services, IConfiguration config)
         {
             var connectionString = config["ConnectionStrings:DefaultConnection"];
-            services.AddDbContext<TaxCalcDbContext>(options => options.UseSqlite(connectionString));
+            services.AddDbContext<TaxCalcDbContext>(options => options.UseSqlServer(connectionString));
         }
 
         public static void ConfigureLogging(this IServiceCollection services)

@@ -56,7 +56,8 @@ namespace PS.Client.Api.Controllers
         {
             try
             {
-                return Ok();
+                var taxResult = _taxService.Calculate(taxCalc);
+                return Ok(taxResult);
             }
             catch (Exception)
             {
