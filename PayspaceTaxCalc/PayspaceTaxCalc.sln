@@ -19,7 +19,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PS.Infrastructure", "PS.Inf
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PS.Contracts", "PS.Contracts\PS.Contracts.csproj", "{43B0C8AE-CA2E-45BD-A6B2-7A8DD79CF7A2}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PS.Test", "PS.Test\PS.Test.csproj", "{E02B1540-1D18-4090-A968-9F710E188827}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PS.Test", "PS.Test\PS.Test.csproj", "{E02B1540-1D18-4090-A968-9F710E188827}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
