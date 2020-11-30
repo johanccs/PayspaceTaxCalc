@@ -1,7 +1,7 @@
 ﻿using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
-using PS.Client.ServicesApi.QueryParameters;
 using PS.Contracts.Logging;
+using PS.Contracts.Repositories;
 using PS.Contracts.Services;
 using PS.Data.DTO;
 using System;
@@ -17,32 +17,33 @@ namespace PS.Client.Api.Controllers
         private readonly ILogManager _logger;
         private readonly IMapper _mapper;
         private readonly ICalculateTaxService _taxService;
-
+        private readonly ITaxResultRepository _taxResultRepo;
         #endregion
 
         #region Constructor
 
-        public TaxController(ILogManager logger, IMapper mapper, ICalculateTaxService taxService)
+        public TaxController(
+            ILogManager logger, IMapper mapper, 
+            ICalculateTaxService taxService, ITaxResultRepository taxResultRepo)
         {
             _logger = logger;
             _mapper = mapper;
             _taxService = taxService;
+            _taxResultRepo = taxResultRepo;
         }
 
         #endregion
 
         #region Action Result
 
-        [HttpGet("{annualIncome}/{postalCode}")]
-        public IActionResult GetTaxPayable(decimal annualIncome, string postalCode)
+        [HttpGet]
+        public IActionResult GetTaxPayable()
         {
             try
             {
-                var taxCalcParam = new TaxCalcParam.Get(annualIncome, postalCode);
+                var result = _taxResultRepo.FindAll();
 
-                var taxResult = _taxService.Calculate(_mapper.Map<TaxCalcDto>(taxCalcParam));
-
-                return Ok(taxResult);
+                return Ok(result);
             }
             catch (Exception ex)
             {

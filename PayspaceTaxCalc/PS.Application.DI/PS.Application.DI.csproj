@@ -18,6 +18,7 @@
     <ProjectReference Include="..\PS.Application.Services\PS.Application.Services.csproj" />
     <ProjectReference Include="..\PS.Contracts\PS.Contracts.csproj" />
     <ProjectReference Include="..\PS.Infrastructure\PS.Infrastructure.csproj" />
+    <ProjectReference Include="..\PS.Repository\PS.Repository.csproj" />
   </ItemGroup>
 
 </Project>

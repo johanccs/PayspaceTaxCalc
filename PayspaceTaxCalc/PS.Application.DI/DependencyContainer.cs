@@ -4,9 +4,11 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using PS.Application.Services;
 using PS.Contracts.Logging;
+using PS.Contracts.Repositories;
 using PS.Contracts.Services;
 using PS.Data.Context;
 using PS.Infrastructure.Logging;
+using PS.Repository;
 
 namespace PS.Application.DI
 {
@@ -44,6 +46,7 @@ namespace PS.Application.DI
         public static void ConfigureIoCServices(this IServiceCollection services)
         {
             services.AddScoped<ICalculateTaxService, CalculateTaxService>();
+            services.AddScoped<ITaxResultRepository, TaxResultRepository>();
         }
     }
 }

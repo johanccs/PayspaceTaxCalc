@@ -9,19 +9,19 @@ namespace PS.Data.Context
         {
         }
 
-        protected override void OnModelCreating(ModelBuilder builder)
-        {
-            builder.Entity<TaxResult>().HasData(
-                    new TaxResult
-                    {
-                        Id = 1,
-                        AnnualIncome = 450000,
-                        Date = DateTime.Now,
-                        PostalCode = "6850",
-                        Result = 36000
-                    }
-                );
-        }
+        //protected override void OnModelCreating(ModelBuilder builder)
+        //{
+        //    builder.Entity<TaxResult>().HasData(
+        //            new TaxResult
+        //            {
+        //                Id = 1,
+        //                AnnualIncome = 450000,
+        //                Date = DateTime.Now,
+        //                PostalCode = "6850",
+        //                Result = 36000
+        //            }
+        //        );
+        //}
 
         public DbSet<TaxRate> TaxRates { get; set; }
         public DbSet<TaxResult> TaxResults { get; set; }
