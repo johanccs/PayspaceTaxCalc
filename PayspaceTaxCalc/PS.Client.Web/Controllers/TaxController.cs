@@ -4,9 +4,9 @@ using Microsoft.Extensions.Configuration;
 using PS.Client.Web.LocalService;
 using PS.Client.Web.Models;
 using PS.Contracts.Logging;
-using PS.Contracts.Services;
 using PS.Data.DTO;
 using System;
+using System.Globalization;
 
 namespace PS.Client.Web.Controllers
 {
@@ -17,11 +17,6 @@ namespace PS.Client.Web.Controllers
         private readonly IConfiguration _config;
         private readonly ILogManager _logger;
         private readonly IMapper _mapper;
-
-        #endregion
-
-        #region Fields
-        public SimpleClass SimpleClass { get; set; }
 
         #endregion
 
@@ -37,12 +32,12 @@ namespace PS.Client.Web.Controllers
 
         #endregion
 
-        public IActionResult Index()
-        {
-            var taxCalc = new TaxCalculationModel();
+        //public IActionResult Index()
+        //{
+        //    var taxCalc = new TaxCalculationModel();
 
-            return View(taxCalc);
-        }
+        //    return View(taxCalc);
+        //}
 
         public IActionResult Create()
         {
@@ -70,8 +65,9 @@ namespace PS.Client.Web.Controllers
                 }
 
                 var result = ApiHandler.Handle(true,_mapper.Map<TaxCalcDto>(taxCalculation), _config);
-             
-                return RedirectToAction("Success", new { message = result });
+                var formattedResult = string.Format(new CultureInfo("en-ZA"), "{0:c}", result);            
+
+                return RedirectToAction("Success", new { message = formattedResult });
             }
             catch (Exception ex)
             {
