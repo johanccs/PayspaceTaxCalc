@@ -11,9 +11,7 @@ namespace PS.Repository
         #region Constructor
 
         public TaxResultRepository(TaxCalcDbContext dbContext):base(dbContext)
-        {
-
-        }
+        {}
 
         #endregion
 

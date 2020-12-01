@@ -1,11 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace PS.Data
+﻿namespace PS.Data
 {
-   public class TaxRate
+    public class TaxRate
     {
+        public int Id { get; set; }
         public int Rate { get; set; }
 
         public decimal From { get; set; }
