@@ -46,7 +46,7 @@ namespace PS.Application.DI
         public static void ConfigureIoCServices(this IServiceCollection services)
         {
             services.AddScoped<ICalculateTaxService, CalculateTaxService>();
-            services.AddScoped<ITaxResultRepository, TaxResultRepository>();
+            services.AddScoped<IRepositoryWrapper, RepositoryWrapper>();
         }
     }
 }

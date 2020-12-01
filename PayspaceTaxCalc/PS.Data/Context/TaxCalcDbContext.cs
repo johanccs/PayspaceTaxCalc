@@ -5,7 +5,7 @@ namespace PS.Data.Context
 {
     public class TaxCalcDbContext:DbContext
     {
-        public TaxCalcDbContext(DbContextOptions<TaxCalcDbContext> options):base(options)
+        public TaxCalcDbContext(DbContextOptions options):base(options)
         {
         }
 
@@ -23,9 +23,9 @@ namespace PS.Data.Context
         //        );
         //}
 
-        public DbSet<TaxRate> TaxRates { get; set; }
+        //public DbSet<TaxRate> TaxRates { get; set; }
         public DbSet<TaxResult> TaxResults { get; set; }
-        public DbSet<TaxType>TaxTypes { get; set; }
+        //public DbSet<TaxType>TaxTypes { get; set; }
 
     }
 }
