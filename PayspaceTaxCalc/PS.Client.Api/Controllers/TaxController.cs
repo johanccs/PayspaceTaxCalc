@@ -19,7 +19,6 @@ namespace PS.Client.Api.Controllers
         private readonly ILogManager _logger;
         private readonly IMapper _mapper;
         private readonly ICalculateTaxService _taxService;
-        //private readonly ITaxResultRepository _taxResultRepo;
         private readonly IRepositoryWrapper _repoWrapper;
         #endregion
 
@@ -33,7 +32,6 @@ namespace PS.Client.Api.Controllers
             _mapper = mapper;
             _taxService = taxService;
             _repoWrapper = repoWrapper;
-            //_taxResultRepo = taxResultRepo;
         }
 
         #endregion
@@ -76,10 +74,11 @@ namespace PS.Client.Api.Controllers
 
                 return Ok(taxResult);
             }
-            catch (Exception)
+            catch (Exception ex)
             {
+                _logger.LogError(ex.Message);
 
-                throw;
+                return StatusCode(500, "Internal Service Error");
             }
         }
 

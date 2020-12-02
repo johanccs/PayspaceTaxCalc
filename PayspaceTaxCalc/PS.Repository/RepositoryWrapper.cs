@@ -1,9 +1,6 @@
 ﻿using PS.Contracts.Repositories;
-using PS.Contracts.Services;
 using PS.Data.Context;
 using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace PS.Repository
 {
@@ -18,6 +15,8 @@ namespace PS.Repository
         #region Fields
 
         private ITaxResultRepository _taxResultRepo;
+        private ITaxTypeRepository _taxTypeRepo;
+        private ITaxRateRepository _taxRateRepo;
      
         #endregion
 
@@ -29,6 +28,8 @@ namespace PS.Repository
         }
 
         #endregion
+
+        #region Properties
 
         public ITaxResultRepository TaxResultRepository
         {
@@ -42,10 +43,40 @@ namespace PS.Repository
                 return _taxResultRepo;
             }
         }
+        public ITaxRateRepository TaxRateRepository
+        {
+            get
+            {
+                if(_taxRateRepo == null)
+                {
+                    _taxRateRepo = new TaxRateRepository(_taxCalcDbContext);
+                }
 
+                return _taxRateRepo;
+            }
+        }        
+        public ITaxTypeRepository TaxTypeRepository
+        {
+            get
+            {
+                if (_taxTypeRepo == null)
+                {
+                    _taxTypeRepo = new TaxTypeRepository(_taxCalcDbContext);
+                }
+
+                return _taxTypeRepo;
+            }
+        }
+
+        #endregion
+
+        #region Methods
+        
         public void Save()
         {
             _taxCalcDbContext.SaveChanges();
         }
+       
+        #endregion
     }
 }

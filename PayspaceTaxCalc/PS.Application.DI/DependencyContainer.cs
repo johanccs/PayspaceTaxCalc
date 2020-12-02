@@ -3,6 +3,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using PS.Application.Services;
+using PS.Application.Services.CalculationProcedure;
 using PS.Contracts.Logging;
 using PS.Contracts.Repositories;
 using PS.Contracts.Services;
@@ -47,6 +48,7 @@ namespace PS.Application.DI
         {
             services.AddScoped<ICalculateTaxService, CalculateTaxService>();
             services.AddScoped<IRepositoryWrapper, RepositoryWrapper>();
+            services.AddScoped<CalculationManager>();
         }
     }
 }
