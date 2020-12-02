@@ -1,4 +1,5 @@
-﻿using PS.Contracts.Repositories;
+﻿using PS.Application.Services.CalculationProcedure;
+using PS.Contracts.Repositories;
 using PS.Contracts.Services;
 using PS.Data;
 using PS.Data.DTO;
@@ -12,15 +13,23 @@ namespace PS.Application.Services
     {
         #region Readonly Fields
 
-        IRepositoryWrapper _repoWrapper;
+        private readonly IRepositoryWrapper _repoWrapper;
+
+        #endregion
+
+        #region Fields
+
+        private CalculationManager _calcManager;
 
         #endregion
 
         #region Constructor
 
-        public CalculateTaxService(IRepositoryWrapper repoWrapper)
+        public CalculateTaxService(IRepositoryWrapper repoWrapper, 
+                                   CalculationManager calcManager)
         {
             _repoWrapper = repoWrapper;
+            _calcManager = calcManager;
         }
 
         #endregion
@@ -31,30 +40,7 @@ namespace PS.Application.Services
             if (taxCalc == null)
                 throw new ArgumentException("Invalid TaxRate parameter");
 
-            decimal amtPayable = 0.00M;
-            var taxRates = GetTaxRates();
-            var taxTypes = GetTaxTypes();
-            var taxType = taxTypes.FirstOrDefault(p => p.PostalCode.Equals(taxCalc.PostalCode));
-
-            if (taxType.TaxCalculationType.Equals("Progressive"))
-            {
-                var taxRate = taxRates.FirstOrDefault(p => p.From < taxCalc.AnnualIncome && p.To > taxCalc.AnnualIncome);
-                amtPayable = taxCalc.AnnualIncome * taxRate.Rate / Convert.ToDecimal(100);
-            }
-            else
-            {
-                //Flat Rate
-                if(taxCalc.AnnualIncome > 10000 && taxCalc.AnnualIncome <= 200000)
-                {
-                    amtPayable = taxCalc.AnnualIncome * Convert.ToDecimal(0.05);
-                }
-                else
-                {
-                    amtPayable = taxCalc.AnnualIncome * Convert.ToDecimal(0.175);
-                }
-            }
-
-            return amtPayable;
+            return _calcManager.Calculate(taxCalc);
         }
 
         #endregion

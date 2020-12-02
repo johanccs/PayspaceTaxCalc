@@ -29,6 +29,8 @@ namespace PS.Repository
 
         #endregion
 
+        #region Properties
+
         public ITaxResultRepository TaxResultRepository
         {
             get
@@ -66,9 +68,15 @@ namespace PS.Repository
             }
         }
 
+        #endregion
+
+        #region Methods
+        
         public void Save()
         {
             _taxCalcDbContext.SaveChanges();
         }
+       
+        #endregion
     }
 }

@@ -13,15 +13,13 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PS.Application.Services", "
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PS.Data", "PS.Data\PS.Data.csproj", "{3AAF35E8-BD3A-4716-B54C-0D68E7C38603}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PS.Domain", "PS.Domain\PS.Domain.csproj", "{24E1259A-C763-4D0C-974E-3B242A72C422}"
-EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PS.Infrastructure", "PS.Infrastructure\PS.Infrastructure.csproj", "{0F103C4F-3CB1-4776-8D0E-301C4D974D17}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PS.Contracts", "PS.Contracts\PS.Contracts.csproj", "{43B0C8AE-CA2E-45BD-A6B2-7A8DD79CF7A2}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PS.Test", "PS.Test\PS.Test.csproj", "{E02B1540-1D18-4090-A968-9F710E188827}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PS.Repository", "PS.Repository\PS.Repository.csproj", "{39C0F8D8-A53F-4506-917E-4AF5F3045E2D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PS.Repository", "PS.Repository\PS.Repository.csproj", "{39C0F8D8-A53F-4506-917E-4AF5F3045E2D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -49,10 +47,6 @@ Global
 		{3AAF35E8-BD3A-4716-B54C-0D68E7C38603}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3AAF35E8-BD3A-4716-B54C-0D68E7C38603}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3AAF35E8-BD3A-4716-B54C-0D68E7C38603}.Release|Any CPU.Build.0 = Release|Any CPU
-		{24E1259A-C763-4D0C-974E-3B242A72C422}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{24E1259A-C763-4D0C-974E-3B242A72C422}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{24E1259A-C763-4D0C-974E-3B242A72C422}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{24E1259A-C763-4D0C-974E-3B242A72C422}.Release|Any CPU.Build.0 = Release|Any CPU
 		{0F103C4F-3CB1-4776-8D0E-301C4D974D17}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{0F103C4F-3CB1-4776-8D0E-301C4D974D17}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0F103C4F-3CB1-4776-8D0E-301C4D974D17}.Release|Any CPU.ActiveCfg = Release|Any CPU

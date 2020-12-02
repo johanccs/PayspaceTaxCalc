@@ -15,7 +15,7 @@ namespace PS.Client.Api
         public Startup(IConfiguration configuration)
         {
             LogManager.LoadConfiguration(
-                string.Concat(Directory.GetCurrentDirectory(), "/nlog.config"));
+                string.Concat(Directory.GetCurrentDirectory(), configuration["NLogConfigName"]));
 
             Configuration = configuration;
         }
