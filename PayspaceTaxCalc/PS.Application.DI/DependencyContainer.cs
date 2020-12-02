@@ -3,10 +3,13 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using PS.Application.Services;
+using PS.Application.Services.CalculationProcedure;
 using PS.Contracts.Logging;
+using PS.Contracts.Repositories;
 using PS.Contracts.Services;
 using PS.Data.Context;
 using PS.Infrastructure.Logging;
+using PS.Repository;
 
 namespace PS.Application.DI
 {
@@ -33,7 +36,7 @@ namespace PS.Application.DI
         public static void ConfigureDbContext(this IServiceCollection services, IConfiguration config)
         {
             var connectionString = config["ConnectionStrings:DefaultConnection"];
-            services.AddDbContext<TaxCalcDbContext>(options => options.UseSqlite(connectionString));
+            services.AddDbContext<TaxCalcDbContext>(options => options.UseSqlServer(connectionString));
         }
 
         public static void ConfigureLogging(this IServiceCollection services)
@@ -44,6 +47,8 @@ namespace PS.Application.DI
         public static void ConfigureIoCServices(this IServiceCollection services)
         {
             services.AddScoped<ICalculateTaxService, CalculateTaxService>();
+            services.AddScoped<IRepositoryWrapper, RepositoryWrapper>();
+            services.AddScoped<CalculationManager>();
         }
     }
 }
